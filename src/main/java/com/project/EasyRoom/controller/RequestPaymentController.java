@@ -1,4 +1,4 @@
-package com.project.CarRental2.controller;
+package com.project.EasyRoom.controller;
 
 import java.util.Date;
 
@@ -8,14 +8,14 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
-import com.project.CarRental2.constants.FiledName;
-import com.project.CarRental2.model.RequestWithdrawal;
-import com.project.CarRental2.model.User;
-import com.project.CarRental2.service.DetailNotificationService;
-import com.project.CarRental2.service.NotificationService;
-import com.project.CarRental2.service.RequestWithdrawalService;
-import com.project.CarRental2.model.DetailNotification;
-import com.project.CarRental2.model.Notification;
+import com.project.EasyRoom.constants.FiledName;
+import com.project.EasyRoom.model.RequestWithdrawal;
+import com.project.EasyRoom.model.User;
+import com.project.EasyRoom.service.DetailNotificationService;
+import com.project.EasyRoom.service.NotificationService;
+import com.project.EasyRoom.service.RequestWithdrawalService;
+import com.project.EasyRoom.model.DetailNotification;
+import com.project.EasyRoom.model.Notification;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;

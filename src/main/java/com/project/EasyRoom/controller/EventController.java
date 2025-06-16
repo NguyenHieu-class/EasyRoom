@@ -1,4 +1,4 @@
-package com.project.CarRental2.controller;
+package com.project.EasyRoom.controller;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -13,17 +13,17 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import com.project.CarRental2.constants.FiledName;
-import com.project.CarRental2.model.Car;
-import com.project.CarRental2.model.DetailNotification;
-import com.project.CarRental2.model.Event;
-import com.project.CarRental2.model.Notification;
-import com.project.CarRental2.model.User;
-import com.project.CarRental2.service.CarService;
-import com.project.CarRental2.service.DetailNotificationService;
-import com.project.CarRental2.service.EventService;
-import com.project.CarRental2.service.NotificationService;
-import com.project.CarRental2.service.UserService;
+import com.project.EasyRoom.constants.FiledName;
+import com.project.EasyRoom.model.Car;
+import com.project.EasyRoom.model.DetailNotification;
+import com.project.EasyRoom.model.Event;
+import com.project.EasyRoom.model.Notification;
+import com.project.EasyRoom.model.User;
+import com.project.EasyRoom.service.CarService;
+import com.project.EasyRoom.service.DetailNotificationService;
+import com.project.EasyRoom.service.EventService;
+import com.project.EasyRoom.service.NotificationService;
+import com.project.EasyRoom.service.UserService;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;

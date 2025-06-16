@@ -1,4 +1,4 @@
-package com.project.CarRental2.vnpay;
+package com.project.EasyRoom.vnpay;
 
 import java.io.UnsupportedEncodingException;
 import java.nio.charset.StandardCharsets;

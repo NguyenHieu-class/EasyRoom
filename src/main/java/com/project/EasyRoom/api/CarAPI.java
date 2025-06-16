@@ -1,4 +1,4 @@
-package com.project.CarRental2.api;
+package com.project.EasyRoom.api;
 
 import java.util.List;
 
@@ -8,12 +8,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.project.CarRental2.model.Car;
-import com.project.CarRental2.service.BrandCarService;
-import com.project.CarRental2.service.CarService;
-import com.project.CarRental2.service.ProvinceService;
-import com.project.CarRental2.service.UploadFile;
-import com.project.CarRental2.service.UserService;
+import com.project.EasyRoom.model.Car;
+import com.project.EasyRoom.service.BrandCarService;
+import com.project.EasyRoom.service.CarService;
+import com.project.EasyRoom.service.ProvinceService;
+import com.project.EasyRoom.service.UploadFile;
+import com.project.EasyRoom.service.UserService;
 
 @CrossOrigin("*")
 @RestController

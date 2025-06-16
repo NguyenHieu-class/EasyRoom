@@ -1,4 +1,4 @@
-package com.project.CarRental2.controller;
+package com.project.EasyRoom.controller;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,17 +10,17 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.project.CarRental2.constants.FiledName;
-import com.project.CarRental2.model.Booking;
-import com.project.CarRental2.model.Car;
-import com.project.CarRental2.model.District;
-import com.project.CarRental2.model.User;
-import com.project.CarRental2.model.Ward;
-import com.project.CarRental2.service.BookingService;
-import com.project.CarRental2.service.CarService;
-import com.project.CarRental2.service.DetailNotificationService;
-import com.project.CarRental2.service.DistrictService;
-import com.project.CarRental2.service.WardService;
+import com.project.EasyRoom.constants.FiledName;
+import com.project.EasyRoom.model.Booking;
+import com.project.EasyRoom.model.Car;
+import com.project.EasyRoom.model.District;
+import com.project.EasyRoom.model.User;
+import com.project.EasyRoom.model.Ward;
+import com.project.EasyRoom.service.BookingService;
+import com.project.EasyRoom.service.CarService;
+import com.project.EasyRoom.service.DetailNotificationService;
+import com.project.EasyRoom.service.DistrictService;
+import com.project.EasyRoom.service.WardService;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;

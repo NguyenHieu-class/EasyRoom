@@ -1,4 +1,4 @@
-package com.project.CarRental2.controller;
+package com.project.EasyRoom.controller;
 
 import java.util.Date;
 
@@ -9,9 +9,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 
-import com.project.CarRental2.model.Role;
-import com.project.CarRental2.model.User;
-import com.project.CarRental2.service.RoleService;
+import com.project.EasyRoom.model.Role;
+import com.project.EasyRoom.model.User;
+import com.project.EasyRoom.service.RoleService;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;

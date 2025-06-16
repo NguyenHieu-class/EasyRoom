@@ -1,4 +1,4 @@
-package com.project.CarRental2.controller;
+package com.project.EasyRoom.controller;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
@@ -22,19 +22,19 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.project.CarRental2.constants.FiledName;
-import com.project.CarRental2.model.Booking;
-import com.project.CarRental2.model.DetailNotification;
-import com.project.CarRental2.model.Notification;
-import com.project.CarRental2.model.PaymentBill;
-import com.project.CarRental2.model.ResuftPayment;
-import com.project.CarRental2.model.User;
-import com.project.CarRental2.service.BookingService;
-import com.project.CarRental2.service.DetailNotificationService;
-import com.project.CarRental2.service.NotificationService;
-import com.project.CarRental2.service.PaymentBillService;
-import com.project.CarRental2.service.UserService;
-import com.project.CarRental2.vnpay.Config;
+import com.project.EasyRoom.constants.FiledName;
+import com.project.EasyRoom.model.Booking;
+import com.project.EasyRoom.model.DetailNotification;
+import com.project.EasyRoom.model.Notification;
+import com.project.EasyRoom.model.PaymentBill;
+import com.project.EasyRoom.model.ResuftPayment;
+import com.project.EasyRoom.model.User;
+import com.project.EasyRoom.service.BookingService;
+import com.project.EasyRoom.service.DetailNotificationService;
+import com.project.EasyRoom.service.NotificationService;
+import com.project.EasyRoom.service.PaymentBillService;
+import com.project.EasyRoom.service.UserService;
+import com.project.EasyRoom.vnpay.Config;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;

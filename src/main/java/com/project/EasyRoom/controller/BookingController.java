@@ -1,4 +1,4 @@
-package com.project.CarRental2.controller;
+package com.project.EasyRoom.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.jpa.JpaSystemException;
@@ -7,11 +7,11 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
-import com.project.CarRental2.constants.FiledName;
-import com.project.CarRental2.model.Booking;
-import com.project.CarRental2.model.User;
-import com.project.CarRental2.service.BookingService;
-import com.project.CarRental2.service.UserService;
+import com.project.EasyRoom.constants.FiledName;
+import com.project.EasyRoom.model.Booking;
+import com.project.EasyRoom.model.User;
+import com.project.EasyRoom.service.BookingService;
+import com.project.EasyRoom.service.UserService;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
