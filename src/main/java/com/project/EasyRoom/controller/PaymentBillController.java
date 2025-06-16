@@ -42,7 +42,7 @@ public class PaymentBillController {
         if (existing == null) {
             return ResponseEntity.notFound().build();
         }
-        bill.setIdPaymentBill(id);
+        bill.setIdPayment(id);
         paymentBillService.savePaymentBill(bill);
         return ResponseEntity.ok(bill);
     }
