@@ -1,4 +1,4 @@
-package com.project.CarRental2.controller;
+package com.project.EasyRoom.controller;
 
 import java.util.Date;
 
@@ -13,12 +13,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.project.CarRental2.constants.FiledName;
-import com.project.CarRental2.model.Blog;
-import com.project.CarRental2.model.User;
-import com.project.CarRental2.service.BlogService;
-import com.project.CarRental2.service.EncryptionPassword;
-import com.project.CarRental2.service.UploadFileImpl;
+import com.project.EasyRoom.constants.FiledName;
+import com.project.EasyRoom.model.Blog;
+import com.project.EasyRoom.model.User;
+import com.project.EasyRoom.service.BlogService;
+import com.project.EasyRoom.service.EncryptionPassword;
+import com.project.EasyRoom.service.UploadFileImpl;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;

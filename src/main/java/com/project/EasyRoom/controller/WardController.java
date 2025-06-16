@@ -1,4 +1,4 @@
-package com.project.CarRental2.controller;
+package com.project.EasyRoom.controller;
 
 import java.util.Date;
 
@@ -10,11 +10,11 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import com.project.CarRental2.model.User;
-import com.project.CarRental2.model.Ward;
-import com.project.CarRental2.service.DistrictService;
-import com.project.CarRental2.service.ProvinceService;
-import com.project.CarRental2.service.WardService;
+import com.project.EasyRoom.model.User;
+import com.project.EasyRoom.model.Ward;
+import com.project.EasyRoom.service.DistrictService;
+import com.project.EasyRoom.service.ProvinceService;
+import com.project.EasyRoom.service.WardService;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
