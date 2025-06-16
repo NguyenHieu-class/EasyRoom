@@ -1,4 +1,4 @@
-package com.project.EasyRoom.controller;
+package com.project.CarRental2.controller;
 
 import java.util.Date;
 
@@ -9,12 +9,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 
+import com.project.CarRental2.model.Role;
+import com.project.CarRental2.model.User;
+import com.project.CarRental2.service.RoleService;
+
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
-
-import com.project.EasyRoom.model.User;
-import com.project.EasyRoom.model.Role;
-import com.project.EasyRoom.service.RoleService;
 
 @Controller
 public class RoleController {
@@ -103,28 +103,24 @@ public class RoleController {
 		}
 	}
 	
-        @GetMapping("/admin/role/delete/{idRole}")
-        public String deleteRole(Model model, @PathVariable("idRole") int idRole,
-                        HttpServletRequest request) {
-                HttpSession session = request.getSession();
-                User sessionUser = (User) session.getAttribute("sesionUser");
-                if(sessionUser!=null) {
-                        if (sessionUser.getRole().getNameRole().equals("Admin")) {
-                                boolean deleted = roleService.deteleRole(idRole);
-                                if(deleted) {
-                                        return "redirect:/admin/role";
-                                } else {
-                                        return "redirect:/admin/role?error=notfound";
-                                }
-
-                        }else {
-                                return "redirect:/login";
-                        }
-                }
-                 else {
-                         return "redirect:/login";
-                }
-        }
+	@GetMapping("/admin/role/delete/{idRole}")
+	public String deleteRole(Model model, @PathVariable("idRole") int idRole,
+			HttpServletRequest request) {
+		HttpSession session = request.getSession();
+		User sessionUser = (User) session.getAttribute("sesionUser");
+		if(sessionUser!=null) {
+			if (sessionUser.getRole().getNameRole().equals("Admin")) {
+				roleService.deteleRole(idRole);
+				return "redirect:admin/role";
+				
+			}else {
+				return "redirect:/login";
+			}
+		}
+		 else {
+			 return "redirect:/login";
+		}
+	}
 
 	@GetMapping("/hello")
 	public String getString() {
@@ -132,4 +128,3 @@ public class RoleController {
 		return "Hello vuejs";
 	}
 }
-

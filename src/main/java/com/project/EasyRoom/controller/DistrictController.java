@@ -1,4 +1,4 @@
-package com.project.EasyRoom.controller;
+package com.project.CarRental2.controller;
 
 import java.util.Date;
 import java.util.List;
@@ -13,10 +13,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.project.EasyRoom.model.District;
-import com.project.EasyRoom.model.User;
-import com.project.EasyRoom.service.DistrictService;
-import com.project.EasyRoom.service.ProvinceService;
+import com.project.CarRental2.model.District;
+import com.project.CarRental2.model.User;
+import com.project.CarRental2.service.DistrictService;
+import com.project.CarRental2.service.ProvinceService;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
@@ -173,4 +173,3 @@ public class DistrictController {
 	
 	
 }
-

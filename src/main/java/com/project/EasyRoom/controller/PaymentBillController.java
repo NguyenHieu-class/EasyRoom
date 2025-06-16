@@ -1,55 +1,42 @@
-package com.project.EasyRoom.controller;
-
-import java.util.List;
+package com.project.CarRental2.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 
-import com.project.EasyRoom.model.PaymentBill;
-import com.project.EasyRoom.service.PaymentBillService;
+import com.project.CarRental2.constants.FiledName;
+import com.project.CarRental2.model.User;
+import com.project.CarRental2.service.PaymentBillService;
 
-@RestController
-@RequestMapping("/api")
-public class PaymentBillController {
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
 
-    @Autowired
-    private PaymentBillService paymentBillService;
+@Controller
+public class PaymentBillController implements FiledName {
+	
+	@Autowired
+	private PaymentBillService paymentBillService;
 
-    @GetMapping("/payment-bills")
-    public List<PaymentBill> getAll() {
-        return paymentBillService.getAllPaymentBills();
-    }
-
-    @GetMapping("/payment-bills/{id}")
-    public ResponseEntity<PaymentBill> getById(@PathVariable int id) {
-        PaymentBill bill = paymentBillService.getPaymentBillById(id);
-        if (bill != null) {
-            return ResponseEntity.ok(bill);
-        }
-        return ResponseEntity.notFound().build();
-    }
-
-    @PostMapping("/payment-bills")
-    public PaymentBill create(@RequestBody PaymentBill bill) {
-        paymentBillService.savePaymentBill(bill);
-        return bill;
-    }
-
-    @PutMapping("/payment-bills/{id}")
-    public ResponseEntity<PaymentBill> update(@PathVariable int id, @RequestBody PaymentBill bill) {
-        PaymentBill existing = paymentBillService.getPaymentBillById(id);
-        if (existing == null) {
-            return ResponseEntity.notFound().build();
-        }
-        bill.setIdPayment(id);
-        paymentBillService.savePaymentBill(bill);
-        return ResponseEntity.ok(bill);
-    }
-
-    @DeleteMapping("/payment-bills/{id}")
-    public ResponseEntity<Void> delete(@PathVariable int id) {
-        paymentBillService.deletePaymentBillById(id);
-        return ResponseEntity.noContent().build();
-    }
+	@GetMapping("/admin/payment")
+	public String CancelPayment(Model model, HttpServletRequest request
+			) {
+		HttpSession session = request.getSession();
+		User sessionUser = (User) session.getAttribute("sesionUser");
+		if(sessionUser!=null) {
+			if (sessionUser.getRole().getIdRole() == ROLE_CUSTOMMER_CARE ||  
+					sessionUser.getRole().getIdRole() == ROLE_ACCOUNTANT
+					|| sessionUser.getRole().getIdRole() == ROLE_ADMIN ){
+				model.addAttribute("list", paymentBillService.getAllPaymentBill());
+				System.err.println(paymentBillService.getAllPaymentBill());
+				return "/admin/pages/payment/history-payment-bill";
+			}else {
+				return "redirect:/login";
+			}
+		}
+		 else {
+			 return "redirect:/login";
+		}
+		
+	}
 }
