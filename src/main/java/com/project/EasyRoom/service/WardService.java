@@ -5,9 +5,11 @@ import com.project.EasyRoom.model.Ward;
 
 public interface WardService {
 
-    void saveWard(Ward entity);
-    void deleteWardById(int id);
-    Ward getWardById(int id);
-    List<Ward> getAllWards();
-    long countWards();
+    List<Ward> getAllWardWithDistrictWithProvinces();
+	List<Ward> getAllWardWithDistrict();
+	List<Ward> getAllWard();
+	Ward getAWard(int id);
+	void saveWard(Ward ward);
+	void deleteWard(int id);
+	List<Ward> getAllWardByIdDistric(int idDistrict);
 }

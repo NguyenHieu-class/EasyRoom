@@ -16,7 +16,7 @@ public interface WardRepository extends JpaRepository<Ward, Integer> {
         SELECT w.* FROM ward w
         JOIN district d ON d.idDistrict = w.id_district
         """, nativeQuery = true)
-    List<Ward> getAllWardWithDistrict();
+    public List<Ward> getAllWardWithDistrict();
 
     // 2. Lấy danh sách xã/phường kèm cả quận/huyện và tỉnh/thành
     @Query(value = """
@@ -24,10 +24,10 @@ public interface WardRepository extends JpaRepository<Ward, Integer> {
         JOIN district d ON d.idDistrict = w.id_district
         JOIN province p ON p.idProvince = d.id_province
         """, nativeQuery = true)
-    List<Ward> getAllWardWithDistrictWithProvinces();
+    public List<Ward> getAllWardWithDistrictWithProvinces();
 
     // 3. Tìm xã/phường theo quận/huyện
-    List<Ward> findWardByDistrictIdDistrict(int idDistrict);
+    public List<Ward> findWardByDistrictIdDistrict(int idDistrict);
 
     // 4. Đếm tổng số xã/phường
     long count();

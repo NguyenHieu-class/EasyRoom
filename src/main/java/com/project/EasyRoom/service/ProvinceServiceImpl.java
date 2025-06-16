@@ -10,34 +10,38 @@ import com.project.EasyRoom.model.Province;
 import com.project.EasyRoom.repository.ProvinceRepository;
 
 @Service
-public class ProvinceServiceImpl implements ProvinceService {
+public class ProvinceServiceImpl  implements ProvinceService{
 
-    @Autowired
-    private ProvinceRepository repository;
+	@Autowired
+	private ProvinceRepository repo;
 
-    @Override
-    public void saveProvince(Province entity) {
-        repository.save(entity);
-    }
+	public List<Province> getAllProvinceOrderByName() {
+		
+		return repo.findAllProvinceOrderbyName();
+	}
 
-    @Override
-    public void deleteProvinceById(int id) {
-        repository.deleteById(id);
-    }
+	@Override
+	public void saveProvices(Province p) {
+		repo.save(p);
+		
+	}
 
-    @Override
-    public Province getProvinceById(int id) {
-        Optional<Province> optional = repository.findById(id);
-        return optional.orElse(null);
-    }
+	@Override
+	public Province getProvince(int id) {
+		Optional<Province> optional = repo.findById(id);
+		Province province = null;
+		if (optional.isPresent()) {
+			province = optional.get();
+		} else {
+			throw new RuntimeException(" Province not found for id :: " + id);
+		}
+		return province;
+		
+	}
 
-    @Override
-    public List<Province> getAllProvinces() {
-        return repository.findAll();
-    }
-
-    @Override
-    public long countProvinces() {
-        return repository.count();
-    }
+	@Override
+	public void deleteProvince(int id) {
+		this.repo.deleteById(id);
+		
+	}
 }

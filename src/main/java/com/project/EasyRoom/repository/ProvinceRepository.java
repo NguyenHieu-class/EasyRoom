@@ -11,9 +11,8 @@ import com.project.EasyRoom.model.Province;
 @Repository
 public interface ProvinceRepository extends JpaRepository<Province, Integer> {
 
-    // Truy vấn tất cả tỉnh/thành theo tên A-Z
     @Query(value = "SELECT * FROM province ORDER BY nameProvince ASC", nativeQuery = true)
-    List<Province> findAllProvinceOrderByName();
+    List<Province> findAllProvinceOrderbyName();
 
     // Đếm tổng số tỉnh
     long count();

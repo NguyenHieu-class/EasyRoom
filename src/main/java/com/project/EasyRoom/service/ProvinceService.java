@@ -5,9 +5,9 @@ import com.project.EasyRoom.model.Province;
 
 public interface ProvinceService {
 
-    void saveProvince(Province entity);
-    void deleteProvinceById(int id);
-    Province getProvinceById(int id);
-    List<Province> getAllProvinces();
-    long countProvinces();
+    List<Province> getAllProvinceOrderByName();
+	void saveProvices(Province p);
+	Province getProvince(int id);
+	void deleteProvince(int id);
+    
 }

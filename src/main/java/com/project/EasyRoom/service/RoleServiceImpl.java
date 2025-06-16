@@ -5,6 +5,7 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import com.project.EasyRoom.model.Role;
 import com.project.EasyRoom.repository.RoleRepository;
@@ -12,32 +13,35 @@ import com.project.EasyRoom.repository.RoleRepository;
 @Service
 public class RoleServiceImpl implements RoleService {
 
-    @Autowired
-    private RoleRepository repository;
+	@Autowired
+	private RoleRepository repository;
 
-    @Override
-    public void saveRole(Role entity) {
-        repository.save(entity);
-    }
+	@Override
+	public List<Role> getAllRole() {
+		return repository.findAll();
+	}
 
-    @Override
-    public void deleteRoleById(int id) {
-        repository.deleteById(id);
-    }
+	@Override
+	public Role getRoleById(int id) {
+		Optional<Role> optional = repository.findById(id);
+		Role role = null;
+		if (optional.isPresent()) {
+			role = optional.get();
+		} else {
+			throw new RuntimeException("Not found id role: " + id);
+		}
+		return role;
+	}
 
-    @Override
-    public Role getRoleById(int id) {
-        Optional<Role> optional = repository.findById(id);
-        return optional.orElse(null);
-    }
+	@Override
+	public void saveRole(@RequestBody Role role) {
+		System.out.println(role);
+		repository.save(role);
+	}
 
-    @Override
-    public List<Role> getAllRoles() {
-        return repository.findAll();
-    }
-
-    @Override
-    public long countRoles() {
-        return repository.count();
-    }
+	@Override
+	public boolean deteleRole(int id) {
+		return false;
+	}
 }
+

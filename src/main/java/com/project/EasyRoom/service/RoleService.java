@@ -5,9 +5,8 @@ import com.project.EasyRoom.model.Role;
 
 public interface RoleService {
 
-    void saveRole(Role entity);
-    void deleteRoleById(int id);
-    Role getRoleById(int id);
-    List<Role> getAllRoles();
-    long countRoles();
+    List <Role> getAllRole();
+	Role getRoleById(int id);
+	void saveRole(Role role);
+	boolean deteleRole(int id);
 }

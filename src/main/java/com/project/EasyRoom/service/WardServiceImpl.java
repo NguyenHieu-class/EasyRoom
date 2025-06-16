@@ -10,34 +10,55 @@ import com.project.EasyRoom.model.Ward;
 import com.project.EasyRoom.repository.WardRepository;
 
 @Service
-public class WardServiceImpl implements WardService {
+public class WardServiceImpl  implements WardService{
 
-    @Autowired
-    private WardRepository repository;
+	@Autowired
+	private WardRepository repo;
+	@Override
+	public List<Ward> getAllWardWithDistrict() {
+		
+		return repo.getAllWardWithDistrict();
+	}
 
-    @Override
-    public void saveWard(Ward entity) {
-        repository.save(entity);
-    }
+	@Override
+	public List<Ward> getAllWard() {
+	
+		return repo.findAll();
+	}
 
-    @Override
-    public void deleteWardById(int id) {
-        repository.deleteById(id);
-    }
+	@Override
+	public Ward getAWard(int id) {
+		Optional<Ward> optionWard= repo.findById(id);
+		Ward ward= null;
+		if(optionWard.isPresent()) {
+			ward= optionWard.get();
+		}else {
+			throw new RuntimeException("Ward not found for id :: " + id);
+		}
+		return ward;
+	}
 
-    @Override
-    public Ward getWardById(int id) {
-        Optional<Ward> optional = repository.findById(id);
-        return optional.orElse(null);
-    }
+	@Override
+	public void saveWard(Ward ward) {
+		repo.save(ward);
+	}
 
-    @Override
-    public List<Ward> getAllWards() {
-        return repository.findAll();
-    }
+	@Override
+	public void deleteWard(int id) {
+		repo.deleteById(id);
+	}
 
-    @Override
-    public long countWards() {
-        return repository.count();
-    }
+	@Override
+	public List<Ward> getAllWardWithDistrictWithProvinces() {
+		
+		return repo.getAllWardWithDistrictWithProvinces();
+	}
+
+	@Override
+	public List<Ward> getAllWardByIdDistric(int idDistrict) {
+		
+		return repo.findWardByDistrictIdDistrict(idDistrict);
+	}
+
 }
+
