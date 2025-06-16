@@ -102,4 +102,9 @@ public class BookingServiceImpl implements BookingService {
     public String[] getRevenueByDateAndUser(String dateStart, String dateEnd, int statusBill, int idUser) {
         return bookingRepository.sumRevenueOnTimeByIdUser(dateStart, dateEnd, statusBill, idUser);
     }
+
+    @Override
+    public List<Booking> getAllBookings() {
+        return bookingRepository.findAll();
+    }
 }
