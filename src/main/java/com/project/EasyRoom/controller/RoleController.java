@@ -103,24 +103,28 @@ public class RoleController {
 		}
 	}
 	
-	@GetMapping("/admin/role/delete/{idRole}")
-	public String deleteRole(Model model, @PathVariable("idRole") int idRole,
-			HttpServletRequest request) {
-		HttpSession session = request.getSession();
-		User sessionUser = (User) session.getAttribute("sesionUser");
-		if(sessionUser!=null) {
-			if (sessionUser.getRole().getNameRole().equals("Admin")) {
-				roleService.deteleRole(idRole);
-				return "redirect:admin/role";
-				
-			}else {
-				return "redirect:/login";
-			}
-		}
-		 else {
-			 return "redirect:/login";
-		}
-	}
+        @GetMapping("/admin/role/delete/{idRole}")
+        public String deleteRole(Model model, @PathVariable("idRole") int idRole,
+                        HttpServletRequest request) {
+                HttpSession session = request.getSession();
+                User sessionUser = (User) session.getAttribute("sesionUser");
+                if(sessionUser!=null) {
+                        if (sessionUser.getRole().getNameRole().equals("Admin")) {
+                                boolean deleted = roleService.deteleRole(idRole);
+                                if(deleted) {
+                                        return "redirect:/admin/role";
+                                } else {
+                                        return "redirect:/admin/role?error=notfound";
+                                }
+
+                        }else {
+                                return "redirect:/login";
+                        }
+                }
+                 else {
+                         return "redirect:/login";
+                }
+        }
 
 	@GetMapping("/hello")
 	public String getString() {

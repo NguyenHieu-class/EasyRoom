@@ -39,9 +39,14 @@ public class RoleServiceImpl implements RoleService {
 		repository.save(role);
 	}
 
-	@Override
-	public boolean deteleRole(int id) {
-		return false;
-	}
+    @Override
+    public boolean deteleRole(int id) {
+        Optional<Role> optional = repository.findById(id);
+        if (optional.isPresent()) {
+            repository.deleteById(id);
+            return true;
+        }
+        return false;
+    }
 }
 
