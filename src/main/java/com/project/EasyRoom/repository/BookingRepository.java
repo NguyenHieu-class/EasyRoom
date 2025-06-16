@@ -56,6 +56,16 @@ public interface BookingRepository extends JpaRepository<Booking, Integer> {
     List<Booking> getAllBookingOnTime(@Param("dateStart") String dateStart,
                                       @Param("dateEnd") String dateEnd);
 
+    @Query(value = """
+        SELECT * FROM booking
+        WHERE status_bill = :statusBill
+          AND CONVERT(nvarchar(10), date_start, 127) >= :dateStart
+          AND CONVERT(nvarchar(10), date_end, 127) <= :dateEnd
+        """, nativeQuery = true)
+    List<Booking> getBookingOnTimeWithStatus(@Param("statusBill") int statusBill,
+                                             @Param("dateStart") String dateStart,
+                                             @Param("dateEnd") String dateEnd);
+
     // 6. Truy vấn booking + phòng + chủ trọ
     String sql = """
         SELECT b.*, r.title, r.addressRoom, r.price, u.username, u.nameDisplay, u.phone 

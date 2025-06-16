@@ -90,7 +90,7 @@ public class BookingServiceImpl implements BookingService {
 
     @Override
     public List<Booking> getBookingOnTimeWithStatus(int statusBill, String dateStart, String dateEnd) {
-        return bookingRepository.getAllBookingByStatusBill(statusBill);
+        return bookingRepository.getBookingOnTimeWithStatus(statusBill, dateStart, dateEnd);
     }
 
     @Override
