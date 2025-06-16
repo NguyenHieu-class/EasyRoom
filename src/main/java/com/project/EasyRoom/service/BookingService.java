@@ -30,4 +30,6 @@ public interface BookingService {
     String[] getRevenueByDate(String dateStart, String dateEnd, int statusBill);
 
     String[] getRevenueByDateAndUser(String dateStart, String dateEnd, int statusBill, int idUser);
+
+    List<Booking> getAllBookings();
 }
